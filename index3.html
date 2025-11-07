@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polished - Premium Nail Studio</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style id="app-style">
+        :root {
+            --primary: #FFD1DC;
+            --primary-light: #FFE6EA;
+            --primary-dark: #FF9EB5;
+            --accent: #D4AF37;
+            --accent-light: #F0E68C;
+            --text: #333333;
+            --light-text: #777777;
+            --white: #FFFFFF;
+            --off-white: #F9F9F9;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text);
+            overflow-x: hidden;
+        }
+        .beautiful{
+              color: var(--primary-dark);
+        }
+        h1, h2, h3, .cursive {
+            font-family: 'Great Vibes', cursive;
+
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            border-color: var(--primary);
+            color: var(--text);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            border-color: var(--primary-dark);
+            color: var(--text);
+        }
+        
+        .btn-outline-primary {
+            border-color: var(--primary);
+            color: var(--text);
+        }
+        
+        .btn-outline-primary:hover {
+            background-color: var(--primary);
+            color: var(--text);
+        }
+        
+        .btn-accent {
+            background-color: var(--accent);
+            border-color: var(--accent);
+            color: var(--white);
+        }
+        
+        .btn-accent:hover {
+            background-color: var(--accent-light);
+            border-color: var(--accent-light);
+            color: var(--text);
+        }
+        
+        .navbar {
+            background-color: var(--white);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar-brand {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.5rem;
+            color: var(--primary-dark);
+        }
+        
+        .nav-link {
+            color: var(--text);
+            font-weight: 500;
+            margin: 0 10px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary-dark);
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--primary-dark);
+            bottom: 0;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover:after, .nav-link.active:after {
+            width: 100%;
+        }
+        
+        #hero {
+            background-image: linear-gradient(rgba(255, 209, 220, 0.7), rgba(255, 209, 220, 0.7)), url('https://cdn.pixabay.com/photo/2016/11/29/05/15/adult-1867530_1280.jpg');
+            background-size: cover;
+            background-position: center;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        
+        .hero-content h1 {
+            font-size: 5rem;
+            color: var(--black);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .hero-content p {
+            font-size: 1.2rem;
+            color: var(--black);
+            text-shadow: 3px 1px 2px rgba(146, 51, 187, 0.2);
+        }
+        
+        .scroll-down {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0) translateX(-50%);
+            }
+            40% {
+                transform: translateY(-20px) translateX(-50%);
+            }
+            60% {
+                transform: translateY(-10px) translateX(-50%);
+            }
+        }
+        
+        .section-title {
+            font-size: 4rem;
+            color: var(--primary-dark);
+            margin-bottom: 2rem;
+        }
+        
+        .section-subtitle {
+            color: var(--light-text);
+            font-weight: 300;
+            margin-bottom: 3rem;
+        }
+        
+        .service-card {
+            border-radius: 10px;
+            border: none;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-icon {
+            font-size: 2rem;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+        }
+        
+        .service-price {
+            color: var(--accent);
+            font-weight: 600;
+        }
+        
+        .gallery-item {
+            overflow: hidden;
+            position: relative;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-bottom: 30px;
+        }
+        
+        .gallery-item img {
+            transition: transform 0.5s ease;
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 209, 220, 0.6);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            border-radius: 10px;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        
+        .gallery-icon {
+            color: white;
+            font-size: 2rem;
+        }
+        
+        .testimonial-item {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .testimonial-text:before, .testimonial-text:after {
+            content: '"';
+            font-size: 50px;
+            color: var(--primary-light);
+            line-height: 0;
+            position: absolute;
+        }
+        
+        .testimonial-text:before {
+            left: -15px;
+            top: 30px;
+        }
+        
+        .testimonial-text:after {
+            right: -15px;
+            bottom: -10px;
+        }
+        
+        .testimonial-client {
+            color: var(--primary-dark);
+            font-weight: 500;
+        }
+        
+        .stars {
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+        
+        .booking-form {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-control:focus {
+            box-shadow: none;
+            border-color: var(--primary-dark);
+        }
+        
+        .form-label {
+            font-weight: 500;
+        }
+        
+        .contact-info i {
+            color: var(--primary-dark);
+            font-size: 1.2rem;
+            margin-right: 10px;
+        }
+        
+        .social-icon {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            border-radius: 50%;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            background: var(--primary-dark);
+            color: var(--white);
+        }
+        
+        footer {
+            background-color: var(--primary-light);
+            color: var(--text);
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: var(--text);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+        }
+        
+        .back-to-top:hover {
+            background: var(--primary-dark);
+            color: var(--white);
+        }
+        
+        .map-container {
+            height: 300px;
+            width: 100%;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        /* Loading indicator */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .loading-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid var(--primary-light);
+            border-top-color: var(--primary-dark);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .success-message, .error-message {
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+            display: none;
+        }
+        
+        .success-message {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .error-message {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        
+    </style>
+</head>
+<body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="100">
+    <!-- Loading Overlay -->
+    <div class="loading-overlay">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="javascript:void(0)">Metswako Nail Studio</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#hero">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#gallery">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#testimonials">Testimonials</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#booking">Booking</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 hero-content" data-aos="fade-right">
+                    <h1 class="beautiful">Beautiful Nails,<br>Beautiful You</h1>
+                    <p class="mb-4">Discover premium nail care services tailored just for you, with Metswako.</p>
+                    <a href="#booking" class="btn btn-accent btn-lg">Book Now</a>
+                </div>
+            </div>
+        </div>
+        <a href="#services" class="scroll-down text-white">
+            <i class="fas fa-chevron-down fa-2x"></i>
+        </a>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-5 bg-light">
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <h2 class="section-title" data-aos="fade-up">Our Services</h2>
+                <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Indulge in our professional nail care treatments</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up">
+                    <div class="card service-card">
+                        <div class="card-body text-center p-4">
+                            <div class="service-icon">
+                                <i class="fas fa-paint-brush"></i>
+                            </div>
+                            <h4>Classic Manicure</h4>
+                            <p>Our classic manicure includes nail shaping, cuticle care, hand massage, and polish application.</p>
+                            <p class="service-price">P180</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card service-card">
+                        <div class="card-body text-center p-4">
+                            <div class="service-icon">
+                                <i class="fas fa-spa"></i>
+                            </div>
+                            <h4>Spa Pedicure</h4>
+                            <p>Relax with our luxurious spa pedicure featuring a foot soak, exfoliation, massage, and polish.</p>
+                            <p class="service-price">P350</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card service-card">
+                        <div class="card-body text-center p-4">
+                            <div class="service-icon">
+                                <i class="fas fa-gem"></i>
+                            </div>
+                            <h4>Gel Polish</h4>
+                            <p>Long-lasting gel polish application with perfect shine that lasts up to two weeks.</p>
+                            <p class="service-price">P150</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card service-card">
+                        <div class="card-body text-center p-4">
+                            <div class="service-icon">
+                                <i class="fas fa-magic"></i>
+                            </div>
+                            <h4>Nail Art</h4>
+                            <p>Express yourself with custom nail art designs created by our talented nail technicians.</p>
+                            <p class="service-price">P10+ per nail</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="card service-card">
+                        <div class="card-body text-center p-4">
+                            <div class="service-icon">
+                                <i class="fas fa-hand-sparkles"></i>
+                            </div>
+                            <h4>Acrylic Extensions</h4>
+                            <p>Beautiful and durable acrylic nail extensions customized to your preferred shape and length.</p>
+                            <p class="service-price">P250</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="500">
+                    <div class="card service-card">
+                        <div class="card-body text-center p-4">
+                            <div class="service-icon">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <h4>Paraffin Treatment</h4>
+                            <p>Moisturizing paraffin wax treatment that softens and hydrates your hands or feet.</p>
+                            <p class="service-price">P300</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-5">
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <h2 class="section-title" data-aos="fade-up">Our Gallery</h2>
+                <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Browse our collection of stunning nail designs</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6" data-aos="zoom-in">
+                    <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#galleryModal" data-img="https://cdn.pixabay.com/photo/2017/08/06/01/00/nail-care-2587223_1280.jpg" data-caption="Elegant French Tips with Floral Accents">
+                        <img src="https://www.naildesignsdaily.com/wp-content/uploads/Black-and-Orange-Nails-5.jpg" alt="Nail design" class="img-fluid">
+                        <div class="gallery-overlay">
+                            <i class="fas fa-search-plus gallery-icon"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#galleryModal" data-img="https://cdn.pixabay.com/photo/2016/09/22/11/55/fingernails-1687543_1280.jpg" data-caption="Pastel Pink Ombre Nails">
+                        <img src="https://www.momooze.com/wp-content/uploads/Long-Neon-Coffin-Nail-Ideas-32-1403x1536.jpg" alt="Nail design" class="img-fluid">
+                        <div class="gallery-overlay">
+                            <i class="fas fa-search-plus gallery-icon"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#galleryModal" data-img="https://cdn.pixabay.com/photo/2017/06/11/15/09/fingernails-2392619_1280.jpg" data-caption="Glitter Accent Nails">
+                        <img src="https://i.pinimg.com/originals/e7/b6/e8/e7b6e8bac01f73801ed4edff9a80f84b.jpg" alt="Nail design" class="img-fluid">
+                        <div class="gallery-overlay">
+                            <i class="fas fa-search-plus gallery-icon"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#galleryModal" data-img="https://cdn.pixabay.com/photo/2017/07/02/19/24/casket-2465366_1280.jpg" data-caption="Marble Effect Nails with Gold Foil">
+                        <img src="https://tse3.mm.bing.net/th/id/OIP.j1bZsyT-GDa4Y86H72XKdwHaHa?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Nail design" class="img-fluid">
+                        <div class="gallery-overlay">
+                            <i class="fas fa-search-plus gallery-icon"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#galleryModal" data-img="https://cdn.pixabay.com/photo/2016/11/29/11/15/adolescent-1869517_1280.jpg" data-caption="Minimalist Geometric Nail Art">
+                        <img src="https://i.pinimg.com/originals/e0/2b/12/e02b1256bef7be4e258c24a5a1ac3a61.jpg" alt="Nail design" class="img-fluid">
+                        <div class="gallery-overlay">
+                            <i class="fas fa-search-plus gallery-icon"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="500">
+                    <div class="gallery-item" data-bs-toggle="modal" data-bs-target="#galleryModal" data-img="https://cdn.pixabay.com/photo/2015/05/01/11/06/hand-748961_1280.jpg" data-caption="Classic Red Manicure">
+                        <img src="https://i.pinimg.com/736x/e7/60/83/e76083016d7fff29b0e23b1ce02c994f.jpg" alt="Nail design" class="img-fluid">
+                        <div class="gallery-overlay">
+                            <i class="fas fa-search-plus gallery-icon"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Modal -->
+    <div class="modal fade" id="galleryModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-body p-0">
+                    <button type="button" class="btn-close position-absolute top-0 end-0 m-3 bg-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <img src="" id="modalImage" class="img-fluid w-100">
+                    <div class="p-3">
+                        <h5 id="modalCaption" class="mb-0"></h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-5 bg-light">
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <h2 class="section-title" data-aos="fade-up">What Clients Say</h2>
+                <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Read reviews from our satisfied customers</p>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-10" data-aos="fade-up">
+                    <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="testimonial-item">
+                                    <div class="stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <p class="testimonial-text">I've been coming to Polished for over a year now and I'm always impressed with their attention to detail. My nails have never looked better! The salon atmosphere is so relaxing and the staff is wonderful.</p>
+                                    <h5 class="testimonial-client">Sarah Kgosimore</h5>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="testimonial-item">
+                                    <div class="stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div>
+                                    <p class="testimonial-text">The nail artists here are true professionals. I came in with a photo of what I wanted and they recreated it perfectly! The gel polish lasted for weeks without chipping. I highly recommend their services.</p>
+                                    <h5 class="testimonial-client">Emily Davis</h5>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="testimonial-item">
+                                    <div class="stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star-half-alt"></i>
+                                    </div>
+                                    <p class="testimonial-text">I had the privilage of being the very first client at Metswako Nail Studio and it was absolutely divine! My feet have never felt so pampered. The massage chair, the attention to detail, and the beautiful polish job—all perfect!</p>
+                                    <h5 class="testimonial-client">Lone Mokantsi</h5>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section id="booking" class="py-5">
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <h2 class="section-title" data-aos="fade-up">Book An Appointment</h2>
+                <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Schedule your nail treatment today</p>
+            </div>
+            <h2 class="section-title" data-aos="fade-up">Requirements</h2>
+                                <div class="col-md-6 mb-3">
+                                    <label for="service" class="form-label">Choose a service from the list below</label>
+                                    <select class="form-select" id="service" required>
+                                        <option value="" selected disabled>Choose a service</option>
+                                        <option value="Classic Manicure - P180">Classic Manicure - P180</option>
+                                        <option value="Spa Pedicure - P350">Spa Pedicure - P350</option>
+                                        <option value="Gel Polish - P150">Gel Polish - P150</option>
+                                        <option value="Nail Art - P10+ per nail">Nail Art - P10+ per nail</option>
+                                        <option value="Acrylic Extensions - P250">Acrylic Extensions - P250</option>
+                                        <option value="Paraffin Treatment - P300">Paraffin Treatment - P300</option>
+                                    </select>
+                                </div>
+                            </div>
+                        
+                        <div class="text-center"> After making a decision, proceed to contact us on WhatsApp using the link below:</div>
+                            <div class="text-center">
+                                 <a href="tel:+26777593768" class="btn mt-8 bg-white text-primary">Call/WhatsApp: (+267) 77593768</a>
+                            </div>
+                         
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5 bg-light">
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <h2 class="section-title" data-aos="fade-up">Contact Us</h2>
+                <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Get in touch with our team</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 mb-4" data-aos="fade-right">
+                    <div class="contact-info mb-4">
+                        <h4 class="mb-4">Visit Our Studio</h4>
+                        <p><i class="fas fa-map-marker-alt"></i> 123 Main Street, Mainmall, Behind KFC</p>
+                        <p><i class="fas fa-phone"></i> (+267) 77593768</p>
+                        <p><i class="fas fa-envelope"></i> info@metswakostudio@gmail.com</p>
+                        <p><i class="fas fa-clock"></i> Mon-Sat: 9:00 AM - 7:00 PM</p>
+                    </div>
+                    <div class="social-links mb-4">
+                        <h4 class="mb-3">Follow Us</h4>
+                        <a href="javascript:void(0)" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="javascript:void(0)" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="javascript:void(0)" class="social-icon"><i class="fab fa-pinterest-p"></i></a>
+                        <a href="javascript:void(0)" class="social-icon"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                    <div class="map-container" data-aos="fade-up">
+                        <iframe src="https://www.bing.com/maps/geoplat/REST/v1/Imagery/Map/RoadVibrant/-24.657873,25.914373/15?ms=323,200&sv=9.42&ml=Basemap,LandCover,Landmarks&key=AnTcaqBi2ypp0xI-OZNi4W_ik2KhjgpqioTAtXLC8GzkMBQRMlyxvxyTnd5b73im&c=en-GB&fmt=jpeg&od=2&shading=hill&logo=n&da=ro&pp=-24.657873,25.914373;rstp.ss;KFC+Kudu" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <div class="booking-form">
+                        <h4 class="mb-4">Send us a Message</h4>
+                        
+                            <form
+  action="https://formspree.io/f/mldoqyeo"
+  method="POST"
+>
+  <label>
+    Your email:
+    <input type="email" name="email">
+  </label>
+  <label>
+    Your message:
+    <textarea name="message"></textarea>
+  </label>
+  <!-- your other form fields go here -->
+  <button type="submit">Send</button>
+</form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p>&copy; 2025 Metswako Nail Studio. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <a href="javascript:void(0)" class="text-dark me-3">Privacy Policy</a>
+                    <a href="javascript:void(0)" class="text-dark">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- Bootstrap JS, Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <script id="app-script">
+        // Initialize AOS animation
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            mirror: false
+        });
+
+        // Handle gallery modal
+        const galleryModal = document.getElementById('galleryModal');
+        if (galleryModal) {
+            galleryModal.addEventListener('show.bs.modal', function (event) {
+                const button = event.relatedTarget;
+                const imageUrl = button.getAttribute('data-img');
+                const imageCaption = button.getAttribute('data-caption');
+                
+                const modalImage = document.getElementById('modalImage');
+                const modalCaption = document.getElementById('modalCaption');
+                
+                modalImage.src = imageUrl;
+                modalCaption.textContent = imageCaption;
+            });
+        }
+
+        // Back to top button
+        const backToTopButton = document.querySelector('.back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        });
+
+        // Form handling for booking
+        const bookingForm = document.getElementById('bookingForm');
+        if (bookingForm) {
+            bookingForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const loadingOverlay = document.querySelector('.loading-overlay');
+                loadingOverlay.classList.add('active');
+                
+                // Simulate API call
+                setTimeout(() => {
+                    loadingOverlay.classList.remove('active');
+                    document.getElementById('bookingSuccess').style.display = 'block';
+                    
+                    // Reset form
+                    bookingForm.reset();
+                    
+                    // Hide success message after 5 seconds
+                    setTimeout(() => {
+                        document.getElementById('bookingSuccess').style.display = 'none';
+                    }, 5000);
+                }, 1500);
+            });
+        }
+
+        // Form handling for contact
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const loadingOverlay = document.querySelector('.loading-overlay');
+                loadingOverlay.classList.add('active');
+                
+                // Simulate API call
+                setTimeout(() => {
+                    loadingOverlay.classList.remove('active');
+                    document.getElementById('contactSuccess').style.display = 'block';
+                    
+                    // Reset form
+                    contactForm.reset();
+                    
+                    // Hide success message after 5 seconds
+                    setTimeout(() => {
+                        document.getElementById('contactSuccess').style.display = 'none';
+                    }, 5000);
+                }, 1500);
+            });
+        }
+
+        // Active navigation item based on scroll position
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        function changeActiveNavItem() {
+            let index = sections.length;
+
+            while(--index && window.scrollY + 100 < sections[index].offsetTop) {}
+            
+            navLinks.forEach(link => link.classList.remove('active'));
+            navLinks[index].classList.add('active');
+        }
+
+        window.addEventListener('scroll', changeActiveNavItem);
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
